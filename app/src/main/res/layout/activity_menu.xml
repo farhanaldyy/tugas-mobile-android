@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Menu">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menu Aplikasi"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-black"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginBottom="5dp"
+        android:padding="15dp"
+        android:background="@color/teal_700"/>
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="9dp"
+        android:backgroundTint="#ffffff"
+        android:text="MENU 1 (Kalkulator sederhana)"
+        android:textColor="@color/teal_700"
+        android:onClick="menu1"/>
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="9dp"
+        android:backgroundTint="@color/white"
+        android:text="MENU 2 (Struktur)"
+        android:textColor="@color/teal_700"
+        android:onClick="menu2"/>
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="9dp"
+        android:backgroundTint="#ffffff"
+        android:text="Menu 3 (UTS MP2021)"
+        android:textColor="@color/teal_700"
+        android:onClick="menu3" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="9dp"
+        android:backgroundTint="#ffffff"
+        android:text="Menu 4 (MYSQL Insert)"
+        android:textColor="@color/teal_700"
+        android:onClick="menu4"/>
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="9dp"
+        android:backgroundTint="@color/white"
+        android:text="Menu 5 (MYSQL Read)"
+        android:textColor="@color/teal_700"
+        android:onClick="menu5"/>
+
+</LinearLayout>
