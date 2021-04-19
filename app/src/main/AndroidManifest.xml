@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Project_latihan"
         android:usesCleartextTraffic="true"
         tools:targetApi="28">
-        <activity android:name=".readData"></activity>
+        <activity android:name=".UpdateData"></activity>
+        <activity android:name=".readData" />
         <activity android:name=".insertData" />
         <activity
             android:name=".SplashScreenActivity"

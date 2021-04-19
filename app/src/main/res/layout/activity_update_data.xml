@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateData"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Data Mahasiswa"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#323131"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="NIM  "
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/edit_nim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/teal_200"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="Nama  "
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/edit_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/teal_200"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="Alamat  "
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/edit_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/teal_200"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="Hobi  "
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/edit_hobi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/teal_200"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:backgroundTint="#2962FF"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:textAllCaps="false"/>
+
+</LinearLayout>

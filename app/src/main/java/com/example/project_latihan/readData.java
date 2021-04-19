@@ -1,5 +1,6 @@
 package com.example.project_latihan;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 import androidx.annotation.RequiresPermission.Read;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -96,10 +98,10 @@ public class readData extends AppCompatActivity {
 
                         try {
                             Boolean status = response.getBoolean("status");
-                            if(status){
+                            if (status) {
                                 JSONArray ja = response.getJSONArray("result");
                                 Log.d("respon",""+ja);
-                                for(int i = 0; i < ja.length(); i++){
+                                for (int i = 0; i < ja.length(); i++) {
                                     JSONObject jo = ja.getJSONObject(i);
 
                                     arrayNim.add(jo.getString("nim"));
@@ -126,4 +128,15 @@ public class readData extends AppCompatActivity {
                 });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1) {
+            if (resultCode==RESULT_OK) {
+                scrollRefresh();
+            } else if (resultCode==RESULT_CANCELED) {
+                Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

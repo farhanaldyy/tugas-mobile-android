@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -93,7 +95,14 @@ public class insertData extends AppCompatActivity {
                             if(status) {
                                 new AlertDialog.Builder(insertData.this)
                                         .setMessage("Berhasil Menambahkan Data!")
-                                        .show();
+                                        .setPositiveButton("Kembali", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent i = getIntent();
+                                                setResult(RESULT_OK,i);
+                                                insertData.this.finish();
+                                            }
+                                        }).show();
                             } else {
                                 new AlertDialog.Builder(insertData.this)
                                         .setMessage("Gagal Menambahkan Data!")

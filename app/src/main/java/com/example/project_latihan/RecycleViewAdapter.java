@@ -2,12 +2,14 @@ package com.example.project_latihan;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresPermission;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,6 +65,18 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.tvNama.setText(arrayNama.get(position));
         holder.tvAlamat.setText(arrayAlamat.get(position));
         holder.tvHobi.setText(arrayHobi.get(position));
+
+        holder.cvMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext,UpdateData.class);
+                i.putExtra("nim",arrayNim.get(position));
+                i.putExtra("nama",arrayNama.get(position));
+                i.putExtra("alamat",arrayAlamat.get(position));
+                i.putExtra("hobi",arrayHobi.get(position));
+                ((readData)mContext).startActivityForResult(i,1);
+            }
+        });
     }
 
     @Override
