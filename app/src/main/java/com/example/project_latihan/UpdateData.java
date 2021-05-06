@@ -91,7 +91,7 @@ public class UpdateData extends AppCompatActivity {
     }
 
     void editData() {
-        AndroidNetworking.post("http://192.168.43.137/Web-Learning/ApiConnect/updateData.php")
+        AndroidNetworking.post("http://192.168.43.136/Web-Learning/ApiConnect/updateData.php")
                 .addBodyParameter("nim",""+nim)
                 .addBodyParameter("nama", ""+nama)
                 .addBodyParameter("alamat", ""+alamat)

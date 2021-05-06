@@ -74,7 +74,7 @@ public class insertData extends AppCompatActivity {
     }
 
     void kirimData(){
-        AndroidNetworking.post("http://192.168.43.137/Web-Learning/ApiConnect/insertData.php")
+        AndroidNetworking.post("http://192.168.43.136/Web-Learning/ApiConnect/insertData.php")
                 .addBodyParameter("nim", nim)
                 .addBodyParameter("nama", nama)
                 .addBodyParameter("alamat", alamat)

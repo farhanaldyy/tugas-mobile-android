@@ -1,17 +1,29 @@
 package com.example.project_latihan;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresPermission;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.model.Progress;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -75,6 +87,58 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 i.putExtra("alamat",arrayAlamat.get(position));
                 i.putExtra("hobi",arrayHobi.get(position));
                 ((readData)mContext).startActivityForResult(i,1);
+            }
+        });
+
+        holder.cvMain.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                new AlertDialog.Builder((readData)mContext)
+                        .setMessage("Ingin menghapus nim : "+arrayNim.get(position)+" ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                progressDialog.setMessage("Menghapus...");
+                                progressDialog.setCancelable(false);
+                                progressDialog.show();
+                                AndroidNetworking.post("http://192.168.43.136/Web-learning/ApiConnect/deleteData.php")
+                                        .addBodyParameter("nim",""+arrayNim.get(position))
+                                        .setPriority(Priority.MEDIUM)
+                                        .build()
+                                        .getAsJSONObject(new JSONObjectRequestListener() {
+                                            @Override
+                                            public void onResponse(JSONObject response) {
+                                                progressDialog.dismiss();
+                                                try {
+                                                    Boolean status = response.getBoolean("status");
+                                                    Log.d("status",""+status);
+                                                    String result = response.getString("result");
+                                                    if(status){
+                                                        if(mContext instanceof readData){
+                                                            ((readData)mContext).scrollRefresh();
+                                                        }
+                                                    }else{
+                                                        Toast.makeText(mContext, ""+result, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }catch (Exception e){
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                            @Override
+                                            public void onError(ANError anError) {
+                                                anError.printStackTrace();
+                                            }
+                                        });
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                }) .show();
+                return false;
             }
         });
     }

@@ -87,7 +87,7 @@ public class readData extends AppCompatActivity {
 
     public void getData(){
         initializeArray();
-        AndroidNetworking.get("http://192.168.43.137/Web-learning/ApiConnect/getData.php")
+        AndroidNetworking.get("http://192.168.43.136/Web-learning/ApiConnect/getData.php")
                 .setTag("Get Data")
                 .setPriority(Priority.MEDIUM)
                 .build()
